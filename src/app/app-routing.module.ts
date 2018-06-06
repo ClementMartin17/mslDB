@@ -8,7 +8,7 @@ const routes: Routes =[
 
   {path: 'astromon', children: [
     {path : 'list', component: AstromonListComponent},
-    {path : 'detail', component: AstromonDetailComponent},
+    {path : 'detail/:name', component: AstromonDetailComponent},
   ]}
 
 ]

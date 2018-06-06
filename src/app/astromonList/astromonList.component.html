@@ -1,5 +1,5 @@
 <h3  *ngFor='let mona of list'>
 
-    <label  routerLink="/astromon/detail/">{{mona}} </label>
+    <label  [routerLink]="['/astromon/detail',mona]">{{mona}} </label>
 </h3>
 
