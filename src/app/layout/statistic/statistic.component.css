@@ -1,0 +1,28 @@
+::ng-deep .grid-background {
+  fill: #ddd;
+}
+
+::ng-deep .grid-fill-hp {
+  fill: #d54238;
+}
+::ng-deep .grid-fill-attack {
+  fill: #9ed62c;
+}
+::ng-deep .grid-fill-defense {
+  fill: #f0a330;
+}
+::ng-deep .grid-fill-recovery {
+  fill: #03a9f4;
+}
+::ng-deep .grid-fill-crit {
+  fill: #9366be;
+}
+::ng-deep .grid-fill-critdmg {
+  fill: #8c554a;
+}
+::ng-deep .grid-fill-resist {
+  fill: #a49c9a;
+}
+
+
+
