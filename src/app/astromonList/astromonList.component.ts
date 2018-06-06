@@ -4,13 +4,13 @@ declare module String{
 }
 
 @Component({
-  selector: 'astrmon-list',
+  selector: 'msl-list',
   templateUrl: './astromonList.component.html',
   styleUrls: ['./astromonList.component.css']
 })
 export class AstromonListComponent implements OnInit{
   title = 'app';
-
+  astromon:any;
   list: any;
   text:string;
 ngOnInit(){

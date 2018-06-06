@@ -1,10 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AstromonListComponent } from './astrmonList/astromonList.component';
+import { AstromonListComponent } from './astromonList/astromonList.component';
+import { AstromonDetailComponent } from './astromonDetail/astromonDetail.component';
 
 
 const routes: Routes =[
-  {path : 'astromonList', component: AstromonListComponent},
+
+  {path: 'astromon', children: [
+    {path : 'list', component: AstromonListComponent},
+    {path : 'detail', component: AstromonDetailComponent},
+  ]}
+
 ]
 
 @NgModule({
