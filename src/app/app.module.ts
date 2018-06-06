@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AstromonListComponent } from './astromonList/astromonList.component';
 import { LayoutModule } from './layout/layout.module';
 import { AstromonDetailComponent } from './astromonDetail/astromonDetail.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { AstromonDetailComponent } from './astromonDetail/astromonDetail.compone
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LayoutModule
+    LayoutModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,87 +1,104 @@
- {{text}}
-<ul class="list-group">
-  <li class="list-group-item borderless">
+<div class="container">
     <div class="row">
-      <div class="col-sm-1">Hp</div>
-    </div>
-    <div class="row">
-      <div class="col-sm-2">
-        <msl-stat stat="25081" type="hp"></msl-stat>
-      </div>
-      <div class="col-sm-1">25081</div>
-    </div>
-  </li>
-  <li class="list-group-item borderless">
-    <div class="row">
-      <div class="col-sm-1">Attack</div>
-    </div>
-    <div class="row">
-      <div class="col-sm-2">
-        <msl-stat stat="2853" type="attack"></msl-stat>
-      </div>
-      <div class="col-sm-1">2853</div>
-    </div>
-  </li>
-  <li class="list-group-item borderless">
-    <div class="row">
-      <div class="col-sm-1">Defence</div>
-    </div>
-    <div class="row">
-      <div class="col-sm-2">
-        <msl-stat stat="2016" type="defense"></msl-stat>
-      </div>
-      <div class="col-sm-1">2016</div>
-    </div>
-  </li>
-  <li class="list-group-item borderless">
-    <div class="row">
-      <div class="col-sm-1">Recovery</div>
-    </div>
-    <div class="row">
-      <div class="col-sm-2">
-        <msl-stat stat="1641" type="recovery"></msl-stat>
-      </div>
-      <div class="col-sm-1">1641</div>
-    </div>
-  </li>
-  <li class="list-group-item borderless">
-    <div class="row">
-      <div class="col-sm-1">crit</div>
-    </div>
-    <div class="row">
-      <div class="col-sm-2">
-        <msl-stat stat="50" type="crit"></msl-stat>
-      </div>
-      <div class="col-sm-1">50</div>
-    </div>
+        <div class="col-sm-6">{{text}}
+            <ul class="list-group">
+              <li class="list-group-item borderless">
+                <div class="row">
+                  <div class="col-sm-1">Hp</div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-7">
+                    <msl-stat stat="25081" type="hp"></msl-stat>
+                  </div>
+                  <div class="col-sm-1">25081</div>
+                </div>
+              </li>
+              <li class="list-group-item borderless">
+                <div class="row">
+                  <div class="col-sm-1">Attack</div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-7">
+                    <msl-stat stat="2853" type="attack"></msl-stat>
+                  </div>
+                  <div class="col-sm-1">2853</div>
+                </div>
+              </li>
+              <li class="list-group-item borderless">
+                <div class="row">
+                  <div class="col-sm-1">Defence</div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-7">
+                    <msl-stat stat="2016" type="defense"></msl-stat>
+                  </div>
+                  <div class="col-sm-1">2016</div>
+                </div>
+              </li>
+              <li class="list-group-item borderless">
+                <div class="row">
+                  <div class="col-sm-1">Recovery</div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-7">
+                    <msl-stat stat="1641" type="recovery"></msl-stat>
+                  </div>
+                  <div class="col-sm-1">1641</div>
+                </div>
+              </li>
+              <li class="list-group-item borderless">
+                <div class="row">
+                  <div class="col-sm-1">crit</div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-7">
+                    <msl-stat stat="50" type="crit"></msl-stat>
+                  </div>
+                  <div class="col-sm-1">50</div>
+                </div>
 
 
-  </li>
-  <li class="list-group-item borderless">
-    <div class="row">
-      <div class="col-sm-1"> crit dmg</div>
-    </div>
-    <div class="row">
-      <div class="col-sm-2">
-        <msl-stat stat="10" type="critdmg"></msl-stat>
-      </div>
-      <div class="col-sm-1">10</div>
-    </div>
+              </li>
+              <li class="list-group-item borderless">
+                <div class="row">
+                  <div class="col-sm-1"> crit dmg</div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-7">
+                    <msl-stat stat="10" type="critdmg"></msl-stat>
+                  </div>
+                  <div class="col-sm-1">10</div>
+                </div>
 
 
-  </li>
-  <li class="list-group-item borderless">
-    <div class="row">
-      <div class="col-sm-1">resist</div>
+              </li>
+              <li class="list-group-item borderless">
+                <div class="row">
+                  <div class="col-sm-1">resist</div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-7">
+                    <msl-stat stat="20" type="resist"></msl-stat>
+                  </div>
+                  <div class="col-sm-1">20</div>
+                </div>
+              </li>
+            </ul>
+            </div>
+        <div class="col-sm-6">
+            <div style="display: block">
+                <canvas baseChart
+                        [datasets]="radarChartData"
+                        [labels]="radarChartLabels"
+                        [chartType]="radarChartType"
+                        (chartHover)="chartHovered($event)"
+                        (chartClick)="chartClicked($event)"></canvas>
+                      </div>
+            </div>
     </div>
-    <div class="row">
-      <div class="col-sm-2">
-        <msl-stat stat="20" type="resist"></msl-stat>
-      </div>
-      <div class="col-sm-1">20</div>
-    </div>
+</div>
 
 
-  </li>
-</ul>
+
+
 <button (click)="goBack()">back</button>
