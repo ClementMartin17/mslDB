@@ -1,6 +1,20 @@
-.star{margin-top: -13px;}
+.container-image {
+    position: relative;
+    display: inline-block;
+}
 
-.container-star{
-    display: grid;
-    margin: -188px 1px 0px 153px;
+.star { }
+
+.container-star {
+    display: flex;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: 0;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container-star .star:nth-child(1n+2) {
+  margin-top: -8px;
 }

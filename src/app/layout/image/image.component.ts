@@ -9,6 +9,7 @@ export class ImageComponent implements OnInit{
     @Input() star: number;
     @Input() name: string;
     @Input() element : string;
+    @Input() height: number;
 
     ngOnInit(){
 

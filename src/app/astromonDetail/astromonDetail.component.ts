@@ -3,6 +3,7 @@ import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import {sprintf} from 'sprintf-js';
 import { Chart } from 'chart.js';
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: 'msl-detail',
@@ -10,14 +11,15 @@ import { Chart } from 'chart.js';
   styleUrls: ['./astromonDetail.component.css']
 })
 export class AstromonDetailComponent implements OnInit {
-  constructor(private location: Location, private route: ActivatedRoute) {}
+  constructor(private location: Location, private route: ActivatedRoute, private http: HttpClient) {}
 
   text: string;
+  astromon: any;
 
 
 
   // Radar
-   radarChartLabels = ['Hp', 'Attack', 'Defence', 'Recovery', 'crit', 'crit dmg', 'resist'];
+   radarChartLabels = ['Hp', 'Attack', 'Defense', 'Recovery', 'Crit Rate', 'Crit Dmg', 'Resist'];
 
    radarChartData = [
     {data: [25081*100/49696, 2853*100/4018, 2016*100/3807, 1614*100/3364, 50*100/100, 10*100/100, 20*100/85], label: 'mona'},
@@ -26,16 +28,16 @@ export class AstromonDetailComponent implements OnInit {
   ];
    radarChartType = 'radar';
 
-   chartOptions = {
+   chartOptions = {#
     legend: {
       display: true
-    },     
+    },
      scale: {
       ticks: {
           beginAtZero: true,
           max: 100
-      }}                                                                                 
-  
+      }}
+
   };
 
 
@@ -51,11 +53,14 @@ export class AstromonDetailComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-     const name = params['name'];
-     const string = 'je suis %s';
+      const name = params['name'];
+      const string = 'je suis %s';
       this.text = sprintf(string, name);
+      this.http.get('http://localhost:3000/astromons/' + name)
+      .subscribe(data => {
+        this.astromon = data[0];
+      });
     });
-
   }
   goBack() {
     this.location.back();

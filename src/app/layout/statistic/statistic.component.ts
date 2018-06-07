@@ -20,13 +20,13 @@ export class StatisticComponent implements OnInit,AfterViewInit {
         maxValue = 49696;
         break;
         case 'attack':
-        maxValue = 3807;
+        maxValue = 4018;
         break;
         case 'defense':
-        maxValue = 3364;
+        maxValue = 3807;
         break;
         case 'recovery':
-        maxValue = 49696;
+        maxValue = 3364;
         break;
         case 'crit':
         maxValue = 100;

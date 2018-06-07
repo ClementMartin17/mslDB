@@ -8,9 +8,9 @@
                 </div>
                 <div class="row">
                   <div class="col-sm-7">
-                    <msl-stat stat="25081" type="hp"></msl-stat>
+                    <msl-stat [stat]="astromon.hp" type="hp"></msl-stat>
                   </div>
-                  <div class="col-sm-1">25081</div>
+                  <div class="col-sm-1">{{astromon.hp}}</div>
                 </div>
               </li>
               <li class="list-group-item borderless">
@@ -19,20 +19,20 @@
                 </div>
                 <div class="row">
                   <div class="col-sm-7">
-                    <msl-stat stat="2853" type="attack"></msl-stat>
+                    <msl-stat [stat]="astromon.atk" type="attack"></msl-stat>
                   </div>
-                  <div class="col-sm-1">2853</div>
+                  <div class="col-sm-1">{{astromon.atk}}</div>
                 </div>
               </li>
               <li class="list-group-item borderless">
                 <div class="row">
-                  <div class="col-sm-1">Defence</div>
+                  <div class="col-sm-1">Defense</div>
                 </div>
                 <div class="row">
                   <div class="col-sm-7">
-                    <msl-stat stat="2016" type="defense"></msl-stat>
+                    <msl-stat [stat]="astromon.def" type="defense"></msl-stat>
                   </div>
-                  <div class="col-sm-1">2016</div>
+                  <div class="col-sm-1">{{astromon.def}}</div>
                 </div>
               </li>
               <li class="list-group-item borderless">
@@ -41,46 +41,46 @@
                 </div>
                 <div class="row">
                   <div class="col-sm-7">
-                    <msl-stat stat="1641" type="recovery"></msl-stat>
+                    <msl-stat [stat]="astromon.rec" type="recovery"></msl-stat>
                   </div>
-                  <div class="col-sm-1">1641</div>
+                  <div class="col-sm-1">{{astromon.rec}}</div>
                 </div>
               </li>
               <li class="list-group-item borderless">
                 <div class="row">
-                  <div class="col-sm-1">crit</div>
+                  <div class="col-sm-2">Critical Rate</div>
                 </div>
                 <div class="row">
                   <div class="col-sm-7">
-                    <msl-stat stat="50" type="crit"></msl-stat>
+                    <msl-stat [stat]="astromon.critrate" type="crit"></msl-stat>
                   </div>
-                  <div class="col-sm-1">50</div>
-                </div>
-
-
-              </li>
-              <li class="list-group-item borderless">
-                <div class="row">
-                  <div class="col-sm-1"> crit dmg</div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-7">
-                    <msl-stat stat="10" type="critdmg"></msl-stat>
-                  </div>
-                  <div class="col-sm-1">10</div>
+                  <div class="col-sm-1">{{astromon.critrate}}</div>
                 </div>
 
 
               </li>
               <li class="list-group-item borderless">
                 <div class="row">
-                  <div class="col-sm-1">resist</div>
+                  <div class="col-sm-2">Critical Damage</div>
                 </div>
                 <div class="row">
                   <div class="col-sm-7">
-                    <msl-stat stat="20" type="resist"></msl-stat>
+                    <msl-stat [stat]="astromon.critdmg" type="critdmg"></msl-stat>
                   </div>
-                  <div class="col-sm-1">20</div>
+                  <div class="col-sm-1">{{astromon.critdmg}}</div>
+                </div>
+
+
+              </li>
+              <li class="list-group-item borderless">
+                <div class="row">
+                  <div class="col-sm-1">Resistance</div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-7">
+                    <msl-stat [stat]="astromon.resi" type="resist"></msl-stat>
+                  </div>
+                  <div class="col-sm-1">{{astromon.resi}}</div>
                 </div>
               </li>
             </ul>
