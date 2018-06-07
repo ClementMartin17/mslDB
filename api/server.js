@@ -18,6 +18,8 @@ db.once('open', function() {
 
 var app = express();
 var bodyParser = require("body-parser");
+var cors = require('cors');
+app.use(cors({origin: 'http://localhost:4200'}));
 app.use(bodyParser.urlencoded({
   extended: false
 }));

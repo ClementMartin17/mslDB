@@ -28,7 +28,7 @@ export class AstromonDetailComponent implements OnInit {
   ];
    radarChartType = 'radar';
 
-   chartOptions = {#
+   chartOptions = {
     legend: {
       display: true
     },
