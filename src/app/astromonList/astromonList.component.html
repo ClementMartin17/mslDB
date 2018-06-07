@@ -5,7 +5,7 @@
 </h3> -->
 
 <div class="container">
-    <div class="row astromon-item" *ngFor='let astromon of list' [routerLink]="['/astromon', astromon.astromon_id, astromon.element | lowercase]">
+    <div class="row astromon-item" *ngFor='let astromon of list' [routerLink]="['/astromon',astromon.element | lowercase, astromon.astromon_id]">
         <div *ngFor='let astromonName of astromon.name' class="col-sm-3">
           <msl-img [element]="astromon.element | lowercase" [name]="astromonName | lowercase" [star]="astromon.grade" [height]="100"></msl-img>
         </div>
