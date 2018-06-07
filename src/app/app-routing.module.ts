@@ -7,8 +7,8 @@ import { AstromonDetailComponent } from './astromonDetail/astromonDetail.compone
 const routes: Routes =[
 
   {path: 'astromon', children: [
-    {path : 'list', component: AstromonListComponent},
-    {path : 'detail/:name', component: AstromonDetailComponent},
+    {path : '', component: AstromonListComponent},
+    {path : ':element/:name', component: AstromonDetailComponent},
   ]}
 
 ]

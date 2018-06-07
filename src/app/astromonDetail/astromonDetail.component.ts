@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import {sprintf} from 'sprintf-js';
 import { Chart } from 'chart.js';
 import { HttpClient } from "@angular/common/http";
+import { Astromon } from '../class/astromon';
 
 @Component({
   selector: 'msl-detail',
@@ -14,7 +15,7 @@ export class AstromonDetailComponent implements OnInit {
   constructor(private location: Location, private route: ActivatedRoute, private http: HttpClient) {}
 
   text: string;
-  astromon: any;
+  astromon: Astromon;
 
 
 
@@ -51,7 +52,7 @@ export class AstromonDetailComponent implements OnInit {
   }
 
 
-  ngOnInit() {
+  ngOnInit() { 
     this.route.params.subscribe(params => {
       const name = params['name'];
       const string = 'je suis %s';
@@ -59,9 +60,11 @@ export class AstromonDetailComponent implements OnInit {
       this.http.get('http://localhost:3000/astromons/' + name)
       .subscribe(data => {
         this.astromon = data[0];
+        console.log(this.astromon.active.passive.values);
       });
     });
   }
+
   goBack() {
     this.location.back();
   }
