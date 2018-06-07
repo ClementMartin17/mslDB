@@ -10,6 +10,7 @@ export class ImageComponent implements OnInit{
     @Input() name: string;
     @Input() element : string;
     @Input() height: number;
+    @Input() evo: number;
 
     ngOnInit(){
 

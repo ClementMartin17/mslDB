@@ -1,14 +1,22 @@
-<!-- <h3  *ngFor='let mona of list'>
-
-    <label  [routerLink]="['/astromon/detail',mona]">{{mona}} </label>
-
-</h3> -->
-
 <div class="container">
-    <div class="row astromon-item" *ngFor='let astromon of list' [routerLink]="['/astromon',astromon.element | lowercase, astromon.astromon_id]">
-        <div *ngFor='let astromonName of astromon.name' class="col-sm-3">
-          <msl-img [element]="astromon.element | lowercase" [name]="astromonName | lowercase" [star]="astromon.grade" [height]="100"></msl-img>
+  <div class="main block-content">
+    <div class="astromon-section">
+      <div class="container-fluid astromon-panel">
+        <div class="row astromon-panel-header">
         </div>
-        <!-- <div class="col-sm-3"><msl-img element="fire" name="hanzo" star="5"></msl-img></div> -->
+        <div class="row astromon-panel-body">
+          <div class="col-md-2 col-sm-2 col-xs-4 astromon-item astro-theme-{{astromon.element | lowercase}}" *ngFor='let astromon of list'>
+            <a [routerLink]="['/astromon', astromon.astromon_id, astromon.element | lowercase]">
+              <div class="card-astromon">
+                <msl-img class="card-img" [element]="astromon.element | lowercase" [name]="astromon.name[0] | lowercase" [star]="astromon.grade" [evo]="1" [height]="64"></msl-img>
+              </div>
+              <div class="card-name">
+                <span>{{astromon.name[0]}}</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
