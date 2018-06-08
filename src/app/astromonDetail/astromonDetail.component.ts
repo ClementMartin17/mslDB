@@ -52,14 +52,15 @@ export class AstromonDetailComponent implements OnInit {
   }
 
 
-  ngOnInit() { 
+  ngOnInit() {
     this.route.params.subscribe(params => {
       const name = params['name'];
+      const element = params['element'];
       const string = 'je suis %s';
       this.text = sprintf(string, name);
-      this.http.get('http://localhost:3000/astromons/' + name)
+      this.http.get('http://localhost:3000/astromons/' + name + '/' + element)
       .subscribe(data => {
-        this.astromon = data[0];
+        this.astromon = data;
         console.log(this.astromon.active.passive.values);
       });
     });
