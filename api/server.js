@@ -45,12 +45,12 @@ myRouter.route('/astromons')
     });
   });
 
-myRouter.route('/astromons/:astromon_id')
+myRouter.route('/astromons/:astromon_id/:element')
   .get(function(req, res) {
-    Astromon.find({astromon_id: req.params.astromon_id}, function(err, astromon) {
+    Astromon.find({astromon_id: req.params.astromon_id, element: req.params.element}, function(err, astromon) {
       if (err)
         res.send(err);
-      res.json(astromon);
+      res.json(astromon[0]);
     });
   });
 
