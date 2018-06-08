@@ -100,3 +100,21 @@
   background-color: #a161db;
   color: #33052b;
 }
+
+.card-astromon .card-info {
+  text-align: left;
+  position: relative;
+  line-height: 20px;
+  height: 20px;
+  display: block;
+}
+
+.card-info .card-info-img {
+  vertical-align: inherit;
+}
+
+.card-info strong {
+  margin-left: 5px;
+  vertical-align: top;
+  color: #1a1a1a;
+}

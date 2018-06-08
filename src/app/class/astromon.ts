@@ -18,7 +18,7 @@ export class Astromon {
 /*----------LEADER----------*/
 class Variant {
     name: string;
-    value: number[];
+    values: any[];
     text: any[];
 }
 
@@ -44,6 +44,6 @@ class Power {
 
 class Passive {
     name: string;
-    values: number[][];
+    values: any[];
     text: any[];
 }

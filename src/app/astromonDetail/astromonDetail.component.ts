@@ -17,8 +17,6 @@ export class AstromonDetailComponent implements OnInit {
   text: string;
   astromon: Astromon;
 
-
-
   // Radar
    radarChartLabels = ['Hp', 'Attack', 'Defense', 'Recovery', 'Crit Rate', 'Crit Dmg', 'Resist'];
 
