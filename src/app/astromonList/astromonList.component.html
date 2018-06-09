@@ -4,29 +4,8 @@
       <div class="container-fluid astromon-panel">
         <div class="row astromon-panel-header">
         </div>
-        <div class="row astromon-panel-body">
-          <div class="col-md-2 col-sm-2 col-4 astromon-item astro-theme-{{astromon.element | lowercase}}" *ngFor='let astromon of list'>
-            <a [routerLink]="['/astromon', astromon.astromon_id, astromon.element | lowercase]">
-              <div class="card-astromon">
-                <msl-img class="card-img" [element]="astromon.element | lowercase" [name]="astromon.name[0] | lowercase" [star]="astromon.grade" [evo]="1" [height]="64"></msl-img>
-                <span class="card-info">
-                  <img class="card-info-img" src="./assets/image/passive/attack-down.png" width="20"/>
-                  <strong>{{astromon.hp}}</strong>
-                </span>
-                <span class="card-info">
-                  <img class="card-info-img" src="./assets/image/passive/defense-down.png" width="20"/>
-                  <strong>{{astromon.atk}}</strong>
-                </span>
-                <span class="card-info">
-                  <img class="card-info-img" src="./assets/image/passive/sap.png" width="20"/>
-                  <strong>{{astromon.def}}</strong>
-                </span>
-              </div>
-              <div class="card-name">
-                <span>{{astromon.name[0]}}</span>
-              </div>
-            </a>
-          </div>
+        <div class="row astromon-panel-body">         
+            <msl-img  class="col-md-2 col-sm-2 col-xs-4" [astromon]="astromon" [evo]="1" [height]="64"  *ngFor='let astromon of list | astromonFilter: grade:namae:atk'></msl-img>        
         </div>
       </div>
     </div>

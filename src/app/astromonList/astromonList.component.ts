@@ -1,7 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { AstromonFilterPipe } from "../pipe/astromonPipe";
+
 @Component({
   selector: "msl-list",
+  pipes:[AstromonFilterPipe],
   templateUrl: "./astromonList.component.html",
   styleUrls: ["./astromonList.component.css"]
 })
@@ -11,8 +14,7 @@ export class AstromonListComponent implements OnInit {
 
   constructor(private http: HttpClient) {}
 
-  ngOnInit() {
-    // this.list = ["mona", "latt", "miho"];
+  ngOnInit() {   
     this.http.get('http://localhost:3000/astromons')
     .subscribe(data => {
       this.list = data;

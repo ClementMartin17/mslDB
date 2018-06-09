@@ -5,15 +5,13 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './image.component.html',
   styleUrls: ['./image.component.css']
 })
-export class ImageComponent implements OnInit{
-    @Input() star: number;
-    @Input() name: string;
-    @Input() element : string;
+export class ImageComponent implements OnInit{ 
     @Input() height: number;
     @Input() evo: number;
+    @Input() astromon: any;
 
     ngOnInit(){
-
+this.astromon;
 
     }
 }

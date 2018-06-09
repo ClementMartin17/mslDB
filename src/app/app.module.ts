@@ -8,12 +8,15 @@ import { AstromonListComponent } from './astromonList/astromonList.component';
 import { LayoutModule } from './layout/layout.module';
 import { AstromonDetailComponent } from './astromonDetail/astromonDetail.component';
 import { ChartsModule } from 'ng2-charts';
+import { AstromonFilterPipe } from './pipe/astromonPipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     AstromonListComponent,
-    AstromonDetailComponent
+    AstromonDetailComponent,
+    AstromonFilterPipe
+
   ],
   imports: [
     BrowserModule,

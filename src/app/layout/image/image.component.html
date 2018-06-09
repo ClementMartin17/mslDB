@@ -1,15 +1,32 @@
-
-<div class="container-image">
-<img src="./assets/image/astromon/{{element}}/{{name}}.png" height="{{height}}">
-<div class="container-star">
-<img *ngIf="star>=1" class="star" src="./assets/image/resources/star.png" height="{{height/4.2}}">
-<img *ngIf="star>=2" class="star" src="./assets/image/resources/star.png" height="{{height/4.2}}">
-<img *ngIf="star>=3" class="star" src="./assets/image/resources/star.png" height="{{height/4.2}}">
-<img *ngIf="star>=4" class="star" src="./assets/image/resources/star.png" height="{{height/4.2}}">
-<img *ngIf="star>=5" class="star" src="./assets/image/resources/star.png" height="{{height/4.2}}">
-<img *ngIf="star>=6" class="star" src="./assets/image/resources/star.png" height="{{height/4.2}}">
-</div>
-<!-- <div class="container-evo">
-  <img class="evo" src="./assets/image/resources/evo{{evo}}.png" height="16"/>
-</div> -->
+<div class="astromon-item astro-theme-{{astromon.element | lowercase}}">
+  <a [routerLink]="['/astromon', astromon.astromon_id, astromon.element | lowercase]">
+    <div class="card-astromon">
+      <div class="container-image card-img">
+        <img src="./assets/image/astromon/{{astromon.element | lowercase}}/{{astromon.name[evo-1] | lowercase}}.png" height="{{height}}">
+        <div class="container-star">
+          <img *ngIf="astromon.grade>=1" class="star" src="./assets/image/resources/star.png" height="{{height/4.2}}" />
+          <img *ngIf="astromon.grade>=2" class="star" src="./assets/image/resources/star.png" height="{{height/4.2}}" />
+          <img *ngIf="astromon.grade>=3" class="star" src="./assets/image/resources/star.png" height="{{height/4.2}}" />
+          <img *ngIf="astromon.grade>=4" class="star" src="./assets/image/resources/star.png" height="{{height/4.2}}" />
+          <img *ngIf="astromon.grade>=5" class="star" src="./assets/image/resources/star.png" height="{{height/4.2}}" />
+          <img *ngIf="astromon.grade>=6" class="star" src="./assets/image/resources/star.png" height="{{height/4.2}}" />
+        </div>
+      </div>
+      <span class="card-info">
+        <img class="card-info-img" src="./assets/image/passive/{{astromon.normal.passive.name | lowercase}}.png" width="20" />
+        <strong>{{astromon.hp}}</strong>
+      </span>
+      <span class="card-info">
+        <img class="card-info-img" src="./assets/image/passive/{{astromon.active.passive.name | lowercase}}.png" width="20" />
+        <strong>{{astromon.atk}}</strong>
+      </span>
+      <span class="card-info">
+        <img class="card-info-img" src="./assets/image/leader/{{astromon.variant.name | lowercase}}.png" width="20" />
+        <strong>{{astromon.def}}</strong>
+      </span>
+    </div>
+    <div class="card-name">
+      <span>{{astromon.name[evo-1]}}</span>
+    </div>
+  </a>
 </div>

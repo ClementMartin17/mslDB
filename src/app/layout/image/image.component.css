@@ -1,3 +1,129 @@
+.astromon-section {
+
+}
+
+.astromon-panel {
+
+}
+
+.astromon-panel-header {
+
+}
+
+.astromon-panel-body {
+
+}
+
+.astromon-item {
+}
+
+.card-astromon {
+  background-color: #f9f9f9;
+  border-style: solid;
+  border-width: 1px;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  /* padding-left: 78px; */
+  overflow: hidden;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 2px 2px 0 0;
+  border-color: rgba(255, 255, 255, 0.27);
+  height: 64px;
+  padding-left: 64px;
+}
+
+.astro-theme-water .card-astromon {
+  border-color: #a0b2c6;
+}
+
+.astro-theme-fire .card-astromon {
+  border-color: #c6a4a7;
+}
+
+.astro-theme-wood .card-astromon {
+  border-color: #a5be96;
+}
+
+.astro-theme-light .card-astromon {
+  border-color: #f4e59f;
+}
+
+.astro-theme-dark .card-astromon {
+  border-color: #a161db;
+}
+
+.card-astromon .card-img {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 64px;
+  height: 64px;
+}
+
+.card-name {
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.075em;
+    text-align: center;
+    margin-bottom: 25px;
+    border-radius: 0 0 2px 2px;
+}
+
+.astro-theme-water .card-name {
+  background-color: #a0b2c6;
+  color: #002447;
+}
+
+.astro-theme-fire .card-name {
+  background-color: #c6a4a7;
+  color: #470800;
+}
+
+.astro-theme-wood .card-name {
+  background-color: #a5be96;
+  color: #00330b;
+}
+
+.astro-theme-light .card-name {
+  background-color: #f4e59f;
+  color: #4e4b08;
+}
+
+.astro-theme-dark .card-name {
+  background-color: #a161db;
+  color: #33052b;
+}
+
+.card-astromon .card-info {
+  text-align: left;
+  position: relative;
+  line-height: 20px;
+  height: 20px;
+  display: block;
+}
+
+.card-info .card-info-img {
+  vertical-align: inherit;
+}
+
+.card-info strong {
+  margin-left: 5px;
+  vertical-align: top;
+  color: #1a1a1a;
+}
+
+
+
+
+
+
 .container-image {
     position: relative;
     display: inline-block;
