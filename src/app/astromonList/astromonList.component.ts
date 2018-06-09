@@ -4,7 +4,7 @@ import { AstromonFilterPipe } from "../pipe/astromonPipe";
 
 @Component({
   selector: "msl-list",
-  pipes:[AstromonFilterPipe],
+
   templateUrl: "./astromonList.component.html",
   styleUrls: ["./astromonList.component.css"]
 })
