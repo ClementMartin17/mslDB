@@ -4,9 +4,33 @@
       <div class="container-fluid astromon-panel">
         <div class="row astromon-panel-header">
         </div>
-        <div class="row astromon-panel-body">         
-            <msl-img  class="col-md-2 col-sm-2 col-xs-4" [astromon]="astromon" [evo]="1" [height]="64"  *ngFor='let astromon of list | astromonFilter: grade:namae:atk'></msl-img>        
-        </div>
+        <input [(ngModel)]="searchName" placeholder="search text goes here">
+
+        <input type="radio" name="element" value="all" [(ngModel)]="searchElement">
+
+        <label>
+          <input type="radio" name="element" value="fire" [(ngModel)]="searchElement">
+          <img src="./assets/image/resources/Fire.png">
+        </label>
+        <label>
+          <input type="radio" name="element" value="water" [(ngModel)]="searchElement">
+          <img src="./assets/image/resources/Water.png">
+        </label>
+        <label>
+          <input type="radio" name="element" value="wood" [(ngModel)]="searchElement">
+          <img src="./assets/image/resources/Wood.png">
+        </label>
+        <label>
+          <input type="radio" name="element" value="light" [(ngModel)]="searchElement">
+          <img src="./assets/image/resources/Light.png">
+        </label>
+        <label>
+          <input type="radio" name="element" value="dark" [(ngModel)]="searchElement">
+          <img src="./assets/image/resources/Dark.png">
+        </label> 
+          <div class="row astromon-panel-body">
+            <msl-img class="col-md-2 col-sm-2 col-xs-4" [astromon]="astromon" [evo]="1" [height]="64" *ngFor='let astromon of (list | astromonFilter:searchName:searchElement)'></msl-img>
+          </div>
       </div>
     </div>
   </div>
