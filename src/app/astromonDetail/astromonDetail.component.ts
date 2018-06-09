@@ -58,7 +58,7 @@ export class AstromonDetailComponent implements OnInit {
       this.text = sprintf(string, name);
       this.http.get('http://localhost:3000/astromons/' + name + '/' + element)
       .subscribe(data => {
-        this.astromon = data;
+        this.astromon = data[0];
         console.log(this.astromon.active.passive.values);
       });
     });

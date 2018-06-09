@@ -37,7 +37,7 @@ myRouter.route('/')
 
 myRouter.route('/astromons')
   .get(function(req, res) {
-    Astromon.find(function(err, astromons) {
+    Astromon.find().sort({astromon_id: 1}).exec(function(err, astromons) {
       if (err) {
         res.send(err);
       }
@@ -50,7 +50,7 @@ myRouter.route('/astromons/:astromon_id/:element')
     Astromon.find({astromon_id: req.params.astromon_id, element: req.params.element}, function(err, astromon) {
       if (err)
         res.send(err);
-      res.json(astromon[0]);
+      res.json(astromon);
     });
   });
 

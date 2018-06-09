@@ -5,7 +5,7 @@
         <div class="row astromon-panel-header">
         </div>
         <div class="row astromon-panel-body">
-          <div class="col-md-2 col-sm-2 col-xs-4 astromon-item astro-theme-{{astromon.element | lowercase}}" *ngFor='let astromon of list'>
+          <div class="col-md-2 col-sm-2 col-4 astromon-item astro-theme-{{astromon.element | lowercase}}" *ngFor='let astromon of list'>
             <a [routerLink]="['/astromon', astromon.astromon_id, astromon.element | lowercase]">
               <div class="card-astromon">
                 <msl-img class="card-img" [element]="astromon.element | lowercase" [name]="astromon.name[0] | lowercase" [star]="astromon.grade" [evo]="1" [height]="64"></msl-img>
