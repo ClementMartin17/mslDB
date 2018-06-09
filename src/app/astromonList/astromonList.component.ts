@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Filter } from "../class/filter";
 
 @Component({
   selector: "msl-list",
@@ -13,7 +12,7 @@ export class AstromonListComponent implements OnInit {
   list: any;
   searchName:string;
   searchElemen:string;
-  
+  searchSort:string;
   constructor(private http: HttpClient) {}
 
   ngOnInit() {     

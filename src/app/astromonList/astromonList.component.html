@@ -27,10 +27,25 @@
         <label>
           <input type="radio" name="element" value="dark" [(ngModel)]="searchElement">
           <img src="./assets/image/resources/Dark.png">
-        </label> 
-          <div class="row astromon-panel-body">
-            <msl-img class="col-md-2 col-sm-2 col-xs-4" [astromon]="astromon" [evo]="1" [height]="64" *ngFor='let astromon of (list | astromonFilter:searchName:searchElement)'></msl-img>
-          </div>
+        </label>
+        <label> Name.
+          <input type="radio" name="sort" value="name" [(ngModel)]="searchSort">
+        </label>
+        <label> Hp.
+          <input type="radio" name="sort" value="hp" [(ngModel)]="searchSort">
+        </label>
+        <label> Atk.
+          <input type="radio" name="sort" value="atk" [(ngModel)]="searchSort">
+        </label>
+        <label> Def.
+          <input type="radio" name="sort" value="def" [(ngModel)]="searchSort">
+        </label>
+        <label>Rec.
+          <input type="radio" name="sort" value="rec" [(ngModel)]="searchSort">
+        </label>
+        <div class="row astromon-panel-body">
+          <msl-img class="col-md-2 col-sm-2 col-xs-4" [astromon]="astromon" [evo]="1" [height]="64" *ngFor='let astromon of (list | astromonFilter:searchName:searchElement:searchSort)'></msl-img>
+        </div>
       </div>
     </div>
   </div>
