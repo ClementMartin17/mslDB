@@ -1,15 +1,16 @@
 var express = require('express');
-var hostname = 'localhost';
-var port = 3000;
 var mongoose = require('mongoose');
-var Astromon = require('./models/astromon.js');
-var options = {
-  keepAlive: 300000,
-  connectTimeoutMS: 30000
-};
-var urlmongo = "mongodb://localhost:27017/msl";
+var bodyParser = require("body-parser");
+var cors = require('cors');
 
-mongoose.connect(urlmongo, options);
+var config = require('./config.js');
+var router = require('./rest/router.js');
+
+mongoose.connect(config.db.urlmongo, {
+  keepAlive: config.db.keepAlive,
+  connectTimeoutMS: config.db.connectTimeoutMS
+});
+
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Connexion error'));
 db.once('open', function() {
@@ -17,45 +18,17 @@ db.once('open', function() {
 });
 
 var app = express();
-var bodyParser = require("body-parser");
-var cors = require('cors');
-app.use(cors({origin: 'http://localhost:4200'}));
+
+app.use(cors({origin: config.api.allowOrigin}));
+
 app.use(bodyParser.urlencoded({
   extended: false
 }));
+
 app.use(bodyParser.json());
 
+app.use(router);
 
-var myRouter = express.Router();
-myRouter.route('/')
-  .all(function(req, res) {
-    res.json({
-      message: "Welcome to MSL Api",
-      methode: req.method
-    });
-  });
-
-myRouter.route('/astromons')
-  .get(function(req, res) {
-    Astromon.find().sort({astromon_id: 1}).exec(function(err, astromons) {
-      if (err) {
-        res.send(err);
-      }
-      res.json(astromons);
-    });
-  });
-
-myRouter.route('/astromons/:astromon_id/:element')
-  .get(function(req, res) {
-    Astromon.find({astromon_id: req.params.astromon_id, element: req.params.element}, function(err, astromon) {
-      if (err)
-        res.send(err);
-      res.json(astromon);
-    });
-  });
-
-app.use(myRouter);
-
-app.listen(port, hostname, function() {
-  console.log("Api open on http://" + hostname + ":" + port);
+app.listen(config.api.port, config.api.hostname, function() {
+  console.log("Api open on http://" + config.api.hostname + ":" + config.api.port);
 });
