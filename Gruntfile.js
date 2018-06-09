@@ -16,7 +16,7 @@ module.exports = function(grunt) {
         command: 'mongo.exe admin --eval "db.shutdownServer()"'
       },
       db_win_import_astromons: {
-        command: 'mongoimport.exe --db msl --collection astromons --file data\\import-data\\astromons.json'
+        command: 'mongoimport.exe --db msl --collection astromons --file data\\import-data\\astromons.new.json'
       },
       win_start_server: {
         command: 'start /b "" node api\\server.js'
