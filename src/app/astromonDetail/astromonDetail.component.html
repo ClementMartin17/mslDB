@@ -1,105 +1,134 @@
-<div class="container" *ngIf="astromon">
-    <div class="row">
-        <div class="col-sm-6">{{text}}
-            <ul class="list-group">
-              <li class="list-group-item borderless">
-                <div class="row">
-                  <div class="col-sm-1">Hp</div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-7">
-                    <msl-stat [stat]="astromon.hp" type="hp"></msl-stat>
-                  </div>
-                  <div class="col-sm-1">{{astromon.hp}}</div>
-                </div>
-              </li>
-              <li class="list-group-item borderless">
-                <div class="row">
-                  <div class="col-sm-1">Attack</div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-7">
-                    <msl-stat [stat]="astromon.atk" type="attack"></msl-stat>
-                  </div>
-                  <div class="col-sm-1">{{astromon.atk}}</div>
-                </div>
-              </li>
-              <li class="list-group-item borderless">
-                <div class="row">
-                  <div class="col-sm-1">Defense</div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-7">
-                    <msl-stat [stat]="astromon.def" type="defense"></msl-stat>
-                  </div>
-                  <div class="col-sm-1">{{astromon.def}}</div>
-                </div>
-              </li>
-              <li class="list-group-item borderless">
-                <div class="row">
-                  <div class="col-sm-1">Recovery</div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-7">
-                    <msl-stat [stat]="astromon.rec" type="recovery"></msl-stat>
-                  </div>
-                  <div class="col-sm-1">{{astromon.rec}}</div>
-                </div>
-              </li>
-              <li class="list-group-item borderless">
-                <div class="row">
-                  <div class="col-sm-2">Critical Rate</div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-7">
-                    <msl-stat [stat]="astromon.critrate" type="crit"></msl-stat>
-                  </div>
-                  <div class="col-sm-1">{{astromon.critrate}}</div>
-                </div>
-
-
-              </li>
-              <li class="list-group-item borderless">
-                <div class="row">
-                  <div class="col-sm-2">Critical Damage</div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-7">
-                    <msl-stat [stat]="astromon.critdmg" type="critdmg"></msl-stat>
-                  </div>
-                  <div class="col-sm-1">{{astromon.critdmg}}</div>
-                </div>
-
-
-              </li>
-              <li class="list-group-item borderless">
-                <div class="row">
-                  <div class="col-sm-1">Resistance</div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-7">
-                    <msl-stat [stat]="astromon.resi" type="resist"></msl-stat>
-                  </div>
-                  <div class="col-sm-1">{{astromon.resi}}</div>
-                </div>
-              </li>
-            </ul>
-            </div>
-        <div class="col-sm-6">
-            <div style="display: block">
-                <canvas baseChart
-                        [options]="chartOptions"
-                        [datasets]="radarChartData"
-                        [labels]="radarChartLabels"
-                        [chartType]="radarChartType"
-                        (chartHover)="chartHovered($event)"
-                        (chartClick)="chartClicked($event)"></canvas>
-                      </div>
-            </div>
+<div class="container-fluid" *ngIf="astromon">
+    {{variantText}}
+  <div class="row">
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-6">
+          <img  class="img-responsive"  src="./assets/image/astromon/{{astromon.element | lowercase}}/{{astromon.name[0] | lowercase}}.png">
+          <img  class="img-responsive"  src="./assets/image/astromon/{{astromon.element | lowercase}}/{{astromon.name[1] | lowercase}}.png">
+          <img  class="img-responsive"  src="./assets/image/astromon/{{astromon.element | lowercase}}/{{astromon.name[2] | lowercase}}.png">
+        </div>
+        <div class="col-md-6">
+          <img src="./assets/image/astromon/{{astromon.element | lowercase}}/{{astromon.name[0] | lowercase}}V.png">
+          <img src="./assets/image/astromon/{{astromon.element | lowercase}}/{{astromon.name[1] | lowercase}}V.png">
+          <img src="./assets/image/astromon/{{astromon.element | lowercase}}/{{astromon.name[2] | lowercase}}V.png">
+        </div>
+      </div>
     </div>
+    <div class="col-md-6">
+      <ul class="list-group">
+        <li class="list-group-item borderless">
+          <div class="row">
+            <div class="col-sm-1">Hp</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-7">
+              <msl-stat [stat]="astromon.hp" type="hp"></msl-stat>
+            </div>
+            <div class="col-sm-1">{{astromon.hp}}</div>
+          </div>
+        </li>
+        <li class="list-group-item borderless">
+          <div class="row">
+            <div class="col-sm-1">Attack</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-7">
+              <msl-stat [stat]="astromon.atk" type="attack"></msl-stat>
+            </div>
+            <div class="col-sm-1">{{astromon.atk}}</div>
+          </div>
+        </li>
+        <li class="list-group-item borderless">
+          <div class="row">
+            <div class="col-sm-1">Defense</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-7">
+              <msl-stat [stat]="astromon.def" type="defense"></msl-stat>
+            </div>
+            <div class="col-sm-1">{{astromon.def}}</div>
+          </div>
+        </li>
+        <li class="list-group-item borderless">
+          <div class="row">
+            <div class="col-sm-1">Recovery</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-7">
+              <msl-stat [stat]="astromon.rec" type="recovery"></msl-stat>
+            </div>
+            <div class="col-sm-1">{{astromon.rec}}</div>
+          </div>
+        </li>
+        <li class="list-group-item borderless">
+          <div class="row">
+            <div class="col-sm-2">Critical Rate</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-7">
+              <msl-stat [stat]="astromon.critrate" type="crit"></msl-stat>
+            </div>
+            <div class="col-sm-1">{{astromon.critrate}}</div>
+          </div>
+
+
+        </li>
+        <li class="list-group-item borderless">
+          <div class="row">
+            <div class="col-sm-2">Critical Damage</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-7">
+              <msl-stat [stat]="astromon.critdmg" type="critdmg"></msl-stat>
+            </div>
+            <div class="col-sm-1">{{astromon.critdmg}}</div>
+          </div>
+
+
+        </li>
+        <li class="list-group-item borderless">
+          <div class="row">
+            <div class="col-sm-1">Resistance</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-7">
+              <msl-stat [stat]="astromon.resi" type="resist"></msl-stat>
+            </div>
+            <div class="col-sm-1">{{astromon.resi}}</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+
+
+
+<div class="col-sm-6">
+    <div style="display: block">
+      <canvas baseChart [options]="chartOptions" [datasets]="radarChartData" [labels]="radarChartLabels" [chartType]="radarChartType"
+        (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+    </div>
+  </div> 
+  <button (click)="goBack()">back</button>
+
 </div>
 
 
 
 
-<button (click)="goBack()">back</button>
+
+
+
+
+
+
+
+
+
+
+
+
+

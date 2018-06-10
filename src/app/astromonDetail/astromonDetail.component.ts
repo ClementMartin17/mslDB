@@ -49,19 +49,30 @@ export class AstromonDetailComponent implements OnInit {
     console.log(e);
   }
 
-
+variantText:string;
   ngOnInit() {
     this.route.params.subscribe(params => {
       const name = params['name'];
       const element = params['element'];
-      const string = 'je suis %s';
-      this.text = sprintf(string, name);
+
+
       this.http.get('http://localhost:3000/astromons/' + name + '/' + element)
       .subscribe(data => {
         this.astromon = data[0];
+let dop = `Increases allies critical  rate by %s-%s`;
+        let derp= `${this.astromon.variant.text["en"]}`;
+        console.log(derp);
+        let pouet =this.astromon.variant.values[0].toString();
+        let bup =this.astromon.variant.values[1].toString();
+        this.variantText = sprintf(dop,pouet ,bup );
         console.log(this.astromon.active.passive.values);
+
       });
     });
+
+
+
+
   }
 
   goBack() {
