@@ -5,20 +5,33 @@ import {sprintf} from 'sprintf-js';
   templateUrl: './image.component.html',
   styleUrls: ['./image.component.css']
 })
-export class ImageComponent implements OnInit{ 
-    @Input() height: number;
-    @Input() evo: number;
-    @Input() astromon: any;
-    @Input() variant: boolean;
-    
-variantText:string;
-passiveText:string;
-activeText:string;
-    ngOnInit(){
-this.astromon;
+export class ImageComponent implements OnInit{
+  @Input() height: number;
+  @Input() evo: number;
+  @Input() astromon: any;
+  @Input() variant: boolean;
 
-this.activeText = sprintf(this.astromon.active.passive.text["en"],this.astromon.active.passive.values[0] ,this.astromon.active.passive.values[1] );
-this.passiveText = sprintf(this.astromon.normal.passive.text["en"],this.astromon.normal.passive.values[0] ,this.astromon.normal.passive.values[1] );
-this.variantText = sprintf(this.astromon.variant.text["en"],this.astromon.variant.values[0] ,this.astromon.variant.values[1] );
-    }
+  variantText:string;
+  passiveText:string;
+  activeText:string;
+  ngOnInit() {
+    this.astromon;
+
+    this.activeText = getFormattedTxt(this.astromon.active.passive.text["en"], this.astromon.active.passive.values);
+    this.passiveText = getFormattedTxt(this.astromon.normal.passive.text["en"], this.astromon.normal.passive.values);
+    this.variantText = getFormattedTxt(this.astromon.variant.text["en"], this.astromon.variant.values);
+  }
+}
+
+function getFormattedTxt(text, values) {
+  var sprintfParams = [];
+
+  if (values.length === 0)
+    return text;
+
+  sprintfParams.push(text);
+  for (var i = 0; i < values.length; i++) {
+    sprintfParams.push(values[i]);
+  }
+  return sprintf.apply(this, sprintfParams);
 }
