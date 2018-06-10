@@ -9,7 +9,7 @@ import { LayoutModule } from './layout/layout.module';
 import { AstromonDetailComponent } from './astromonDetail/astromonDetail.component';
 import { ChartsModule } from 'ng2-charts';
 import { AstromonFilterPipe } from './pipe/astromonPipe';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +24,8 @@ import { AstromonFilterPipe } from './pipe/astromonPipe';
     LayoutModule,
     ChartsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

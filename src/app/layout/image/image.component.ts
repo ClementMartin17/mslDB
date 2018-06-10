@@ -9,6 +9,8 @@ export class ImageComponent implements OnInit{
     @Input() height: number;
     @Input() evo: number;
     @Input() astromon: any;
+    @Input() variant: boolean;
+    
 variantText:string;
 passiveText:string;
 activeText:string;

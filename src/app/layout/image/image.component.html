@@ -2,7 +2,8 @@
   <a [routerLink]="['/astromon', astromon.astromon_id, astromon.element | lowercase]">
     <div class="card-astromon">
       <div class="container-image card-img">
-        <img src="./assets/image/astromon/{{astromon.element | lowercase}}/{{astromon.name[evo-1] | lowercase}}.png" height="{{height}}">
+        <img *ngIf="!variant" src="./assets/image/astromon/{{astromon.element | lowercase}}/{{astromon.name[evo-1] | lowercase}}.png" height="{{height}}">
+        <img *ngIf="variant" src="./assets/image/astromon/{{astromon.element | lowercase}}/{{astromon.name[evo-1] | lowercase}}V.png" height="{{height}}">
         <div class="container-star">
           <img *ngIf="astromon.grade>=1" class="star" src="./assets/image/resources/star.png" height="{{height/4.2}}" />
           <img *ngIf="astromon.grade>=2" class="star" src="./assets/image/resources/star.png" height="{{height/4.2}}" />

@@ -6,9 +6,9 @@
         </div>
         <input [(ngModel)]="searchName" placeholder="search text goes here">
         <label>
-        <input type="radio" name="element" value="all" [(ngModel)]="searchElement">
-        <img src="./assets/image/resources/All.png">
-      </label>
+          <input type="radio" name="element" value="all" [(ngModel)]="searchElement">
+          <img src="./assets/image/resources/All.png">
+        </label>
         <label>
           <input type="radio" name="element" value="fire" [(ngModel)]="searchElement">
           <img src="./assets/image/resources/Fire.png">
@@ -44,8 +44,27 @@
         <label>Rec.
           <input type="radio" name="sort" value="rec" [(ngModel)]="searchSort">
         </label>
-        <div class="row astromon-panel-body">
-          <msl-img class="col-md-2 col-sm-2 col-xs-4" [astromon]="astromon" [evo]="1" [height]="64" *ngFor='let astromon of (list | astromonFilter:searchName:searchElement:searchSort)'></msl-img>
+
+
+        <label>
+          <input type="radio" name="evo" value="1" [(ngModel)]="searchEvo">
+          <img src="./assets/image/resources/Evo1.png">
+        </label>
+        <label>
+          <input type="radio" name="evo" value="2" [(ngModel)]="searchEvo">
+          <img src="./assets/image/resources/Evo2.png">
+        </label>
+        <label>
+          <input type="radio" name="evo" value="3" [(ngModel)]="searchEvo">
+          <img src="./assets/image/resources/Evo3.png">
+        </label>
+
+        variant.
+        <input type="checkbox" [(ngModel)]="searchVariant">
+
+        <div class="row astromon-panel-body" [@listAnimation]="list.length">
+          <msl-img class="col-md-2 col-sm-2 col-xs-4" [astromon]="astromon" [evo]="searchEvo" [variant]="searchVariant" [height]="64"
+            *ngFor='let astromon of (list | astromonFilter:searchName:searchElement:searchSort)'></msl-img>
         </div>
       </div>
     </div>
