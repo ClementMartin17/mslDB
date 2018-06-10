@@ -11,7 +11,7 @@ export class AstromonListComponent implements OnInit {
   title = "app";
   list: any;
   searchName:string;
-  searchElemen:string;
+  searchElement= "All";
   searchSort:string;
   constructor(private http: HttpClient) {}
 
