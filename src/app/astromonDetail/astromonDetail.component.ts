@@ -19,12 +19,8 @@ export class AstromonDetailComponent implements OnInit {
 
   // Radar
    radarChartLabels = ['Hp', 'Attack', 'Defense', 'Recovery', 'Crit Rate', 'Crit Dmg', 'Resist'];
-
-   radarChartData = [
-    {data: [25081*100/49696, 2853*100/4018, 2016*100/3807, 1614*100/3364, 50*100/100, 10*100/100, 20*100/85], label: 'mona'},
-    {data: [24291*100/49696, 3058*100/4018, 2138*100/3807, 2288*100/3364, 50*100/100, 10*100/100, 20*100/85], label: 'boltwing'},
-
-  ];
+   radarChartData:any;
+  
    radarChartType = 'radar';
 
    chartOptions = {
@@ -59,13 +55,12 @@ variantText:string;
       this.http.get('http://localhost:3000/astromons/' + name + '/' + element)
       .subscribe(data => {
         this.astromon = data[0];
-let dop = `Increases allies critical  rate by %s-%s`;
-        let derp= `${this.astromon.variant.text["en"]}`;
-        console.log(derp);
-        let pouet =this.astromon.variant.values[0].toString();
-        let bup =this.astromon.variant.values[1].toString();
-        this.variantText = sprintf(dop,pouet ,bup );
-        console.log(this.astromon.active.passive.values);
+        this.variantText = sprintf(this.astromon.variant.text["en"],this.astromon.variant.values[0] ,this.astromon.variant.values[1] );
+
+        this.radarChartData = [
+          {data: [this.astromon.hp*100/49696, this.astromon.atk*100/4018, this.astromon.def*100/3807, this.astromon.rec*100/3364, this.astromon.critdmg*100/100, this.astromon.critrate*100/100, this.astromon.resi*100/85], label: this.astromon.astromon_id},
+          {data: [24291*100/49696, 3058*100/4018, 2138*100/3807, 2288*100/3364, 50*100/100, 10*100/100, 20*100/85], label: 'boltwing'},      
+        ];
 
       });
     });
