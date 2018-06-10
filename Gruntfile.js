@@ -34,6 +34,7 @@ module.exports = function(grunt) {
   grunt.registerTask('db-start', ['exec:db_win_start_db']);
   grunt.registerTask('db-stop', ['exec:db_win_stop_db']);
   grunt.registerTask('db-clear', ['exec:db_win_clear_directory']);
+  grunt.registerTask('db-reload', ['db-stop', 'db-clear', 'db-init']);
 
   grunt.registerTask('api-start', ['exec:win_start_server']);
   grunt.registerTask('api-stop', ['exec:win_stop_server']);
