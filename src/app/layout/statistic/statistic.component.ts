@@ -8,9 +8,12 @@ import * as d3 from 'd3';
 export class StatisticComponent implements OnInit,AfterViewInit {
   @Input() stat: number;
   @Input() type: string;
+  @Input() width = 280;
+  @Input() height = 20;
+  @Input() astromonName = "";
   id: string;
   ngOnInit() {
-    this.id = `${this.type}${this.stat}`;
+    this.id = `${this.type}${this.stat}${this.astromonName}`;
   }
 
   ngAfterViewInit() {
@@ -39,39 +42,38 @@ export class StatisticComponent implements OnInit,AfterViewInit {
         break;
     }
 
-    const width = 280;
-    const height = 20;
 
-    this.stat = (this.stat * width) / maxValue;
+
+    this.stat = (this.stat * this.width) / maxValue;
 
     const x = d3
       .scaleLinear()
       .domain([0, 10000])
-      .range([0, width]);
+      .range([0, this.width]);
 
     const svg = d3
       .select(`#${this.id}`)
       .append('svg')
-      .attr('width', width)
-      .attr('height', height)
+      .attr('width', this.width)
+      .attr('height', this.height)
       .append('g');
 
     svg
       .append('rect')
       .attr('class', 'grid-background')
-      .attr('width', width)
-      .attr('height', height);
+      .attr('width', this.width)
+      .attr('height', this.height);
 
     svg
       .append('rect')
       .attr('class', `grid-fill-${this.type}`)
       .attr('width', this.stat)
-      .attr('height', height);
+      .attr('height', this.height);
 
     svg
       .append('g')
       .attr('class', 'grid')
-      .attr('transform', 'translate(0,' + height + ')')
+      .attr('transform', 'translate(0,' + this.height + ')')
       .call(
         d3
           .axisBottom(x)
