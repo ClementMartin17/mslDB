@@ -1,69 +1,87 @@
-<div class="container">
+<div class="astromon-list-content">
+  <div class="sidebar-bg">
+    <div class="sidebar-content">
+      <div class="sidebar-filter">
+        <div class="row">
+          <label class="label-filter">Name :</label>
+          <input [(ngModel)]="searchName" placeholder="Search Astromon">
+        </div>
+        <div class="row">
+          <label class="label-filter">Show element :</label>
+          <label>
+            <input type="radio" name="element" value="all" title="all" [(ngModel)]="searchElement">
+            <img src="./assets/image/resources/All.png">
+          </label>
+          <label>
+            <input type="radio" name="element" value="fire" title="fire" [(ngModel)]="searchElement">
+            <img src="./assets/image/resources/Fire.png">
+          </label>
+          <label>
+            <input type="radio" name="element" value="water" title="water" [(ngModel)]="searchElement">
+            <img src="./assets/image/resources/Water.png">
+          </label>
+          <label>
+            <input type="radio" name="element" value="wood" title="wood" [(ngModel)]="searchElement">
+            <img src="./assets/image/resources/Wood.png">
+          </label>
+          <label>
+            <input type="radio" name="element" value="light" title="light" [(ngModel)]="searchElement">
+            <img src="./assets/image/resources/Light.png">
+          </label>
+          <label>
+            <input type="radio" name="element" value="dark" title="dark" [(ngModel)]="searchElement">
+            <img src="./assets/image/resources/Dark.png">
+          </label>
+        </div>
+        <div class="row">
+          <label class="label-filter">Sort by :</label>
+          <label> Name.
+            <input type="radio" name="sort" value="name" [(ngModel)]="searchSort">
+          </label>
+          <label>
+            <input type="radio" name="sort" value="hp" [(ngModel)]="searchSort">
+            <img src="./assets/image/resources/hp-black.png"/>
+          </label>
+          <label>
+            <input type="radio" name="sort" value="atk" [(ngModel)]="searchSort">
+            <img src="./assets/image/resources/atk-black.png"/>
+          </label>
+          <label>
+            <input type="radio" name="sort" value="def" [(ngModel)]="searchSort">
+            <img src="./assets/image/resources/def-black.png"/>
+          </label>
+          <label>
+            <input type="radio" name="sort" value="rec" [(ngModel)]="searchSort">
+            <img src="./assets/image/resources/rec-black.png"/>
+          </label>
+        </div>
+        <div class="row">
+          <label class="label-filter">Show Evo :</label>
+          <label>
+            <input type="radio" name="evo" value="1" [(ngModel)]="searchEvo">
+            <img src="./assets/image/resources/Evo1.png">
+          </label>
+          <label>
+            <input type="radio" name="evo" value="2" [(ngModel)]="searchEvo">
+            <img src="./assets/image/resources/Evo2.png">
+          </label>
+          <label>
+            <input type="radio" name="evo" value="3" [(ngModel)]="searchEvo">
+            <img src="./assets/image/resources/Evo3.png">
+          </label>
+          variant.
+          <input type="checkbox" [(ngModel)]="searchVariant">
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="main block-content">
     <div class="astromon-section">
       <div class="container-fluid astromon-panel">
         <div class="row astromon-panel-header">
         </div>
-        <input [(ngModel)]="searchName" placeholder="search text goes here">
-        <label>
-          <input type="radio" name="element" value="all" [(ngModel)]="searchElement">
-          <img src="./assets/image/resources/All.png">
-        </label>
-        <label>
-          <input type="radio" name="element" value="fire" [(ngModel)]="searchElement">
-          <img src="./assets/image/resources/Fire.png">
-        </label>
-        <label>
-          <input type="radio" name="element" value="water" [(ngModel)]="searchElement">
-          <img src="./assets/image/resources/Water.png">
-        </label>
-        <label>
-          <input type="radio" name="element" value="wood" [(ngModel)]="searchElement">
-          <img src="./assets/image/resources/Wood.png">
-        </label>
-        <label>
-          <input type="radio" name="element" value="light" [(ngModel)]="searchElement">
-          <img src="./assets/image/resources/Light.png">
-        </label>
-        <label>
-          <input type="radio" name="element" value="dark" [(ngModel)]="searchElement">
-          <img src="./assets/image/resources/Dark.png">
-        </label>
-        <label> Name.
-          <input type="radio" name="sort" value="name" [(ngModel)]="searchSort">
-        </label>
-        <label> Hp.
-          <input type="radio" name="sort" value="hp" [(ngModel)]="searchSort">
-        </label>
-        <label> Atk.
-          <input type="radio" name="sort" value="atk" [(ngModel)]="searchSort">
-        </label>
-        <label> Def.
-          <input type="radio" name="sort" value="def" [(ngModel)]="searchSort">
-        </label>
-        <label>Rec.
-          <input type="radio" name="sort" value="rec" [(ngModel)]="searchSort">
-        </label>
-
-
-        <label>
-          <input type="radio" name="evo" value="1" [(ngModel)]="searchEvo">
-          <img src="./assets/image/resources/Evo1.png">
-        </label>
-        <label>
-          <input type="radio" name="evo" value="2" [(ngModel)]="searchEvo">
-          <img src="./assets/image/resources/Evo2.png">
-        </label>
-        <label>
-          <input type="radio" name="evo" value="3" [(ngModel)]="searchEvo">
-          <img src="./assets/image/resources/Evo3.png">
-        </label>
-
-        variant.
-        <input type="checkbox" [(ngModel)]="searchVariant">
-
         <div class="row astromon-panel-body" [@listAnimation]="list.length">
-          <msl-img class="col-md-2 col-sm-2 col-xs-4" [astromon]="astromon" [evo]="searchEvo" [variant]="searchVariant" [height]="64"
+          <msl-img class="col-md-2 col-sm-2 col-4" [astromon]="astromon" [evo]="searchEvo" [variant]="searchVariant" [height]="64"
             *ngFor='let astromon of (list | astromonFilter:searchName:searchElement:searchSort)'></msl-img>
         </div>
       </div>

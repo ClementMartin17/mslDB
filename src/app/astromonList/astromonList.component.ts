@@ -10,7 +10,7 @@ import {trigger, transition, style, animate, query, stagger} from '@angular/anim
   styleUrls: ["./astromonList.component.css"],
   animations: [
     trigger('listAnimation', [
-      transition('* => *', [ 
+      transition('* => *', [
 
         query(':enter', [
           style({ opacity: 0 }),
@@ -21,10 +21,6 @@ import {trigger, transition, style, animate, query, stagger} from '@angular/anim
       ])
     ])
   ]
-
-
-
-
 })
 export class AstromonListComponent implements OnInit {
   title = "app";
@@ -36,7 +32,7 @@ export class AstromonListComponent implements OnInit {
   searchVariant=false;
   constructor(private http: HttpClient) {}
 
-  ngOnInit() {     
+  ngOnInit() {
     this.http.get('http://localhost:3000/astromons')
     .subscribe(data => {
       this.list = data;

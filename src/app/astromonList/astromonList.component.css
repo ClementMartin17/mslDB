@@ -6,14 +6,43 @@ label > input + img{ /* IMAGE STYLES */
   cursor:pointer;
   border:2px solid transparent;
   filter: grayscale(90%);
-  height: 50px;
+  height: 30px;
 }
 label > input:checked + img{
   filter: grayscale(0%);
 }
 
+.astromon-list-content {
+  display: flex;
+}
+
+.sidebar-bg {
+  background: #f5f5f5;
+  padding-bottom: 40px;
+}
+
+.sidebar-content {
+  position: sticky;
+  top: 25px;
+}
+
+.sidebar-filter {
+  width: 280px;
+  height: 75vh;
+  margin: 20px;
+}
+
+.sidebar-filter .label-filter {
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 2px;
+    width: 100%;
+    text-transform: uppercase;
+}
+
 .block-content {
   padding: 20px 0 50px 0;
+  flex: 1;
 }
 
 .astromon-section {
