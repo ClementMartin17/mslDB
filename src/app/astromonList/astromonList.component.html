@@ -40,19 +40,19 @@
           </label>
           <label>
             <input type="radio" name="sort" value="hp" [(ngModel)]="searchSort">
-            <img src="./assets/image/resources/hp-black.png"/>
+            <img src="./assets/image/resources/hp-black.png" />
           </label>
           <label>
             <input type="radio" name="sort" value="atk" [(ngModel)]="searchSort">
-            <img src="./assets/image/resources/atk-black.png"/>
+            <img src="./assets/image/resources/atk-black.png" />
           </label>
           <label>
             <input type="radio" name="sort" value="def" [(ngModel)]="searchSort">
-            <img src="./assets/image/resources/def-black.png"/>
+            <img src="./assets/image/resources/def-black.png" />
           </label>
           <label>
             <input type="radio" name="sort" value="rec" [(ngModel)]="searchSort">
-            <img src="./assets/image/resources/rec-black.png"/>
+            <img src="./assets/image/resources/rec-black.png" />
           </label>
         </div>
         <div class="row">
@@ -70,7 +70,8 @@
             <img src="./assets/image/resources/Evo3.png">
           </label>
           variant.
-          <input type="checkbox" [(ngModel)]="searchVariant">
+          <input type="checkbox" [(ngModel)]="searchVariant"> compare.
+          <input type="checkbox" [(ngModel)]="compare">
         </div>
       </div>
     </div>
@@ -82,7 +83,7 @@
         </div>
         <div class="row astromon-panel-body" [@listAnimation]="list.length">
           <msl-img class="col-md-4 col-sm-4 col-8" [astromon]="astromon" [evo]="searchEvo" [variant]="searchVariant" [height]="64"
-            *ngFor='let astromon of (list | astromonFilter:searchName:searchElement:searchSort)'></msl-img>
+            *ngFor='let astromon of (list | astromonFilter:searchName:searchElement:searchSort)' (click)="onClick(astromon)"></msl-img>
         </div>
       </div>
     </div>

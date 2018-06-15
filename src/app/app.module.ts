@@ -10,11 +10,14 @@ import { AstromonDetailComponent } from './astromonDetail/astromonDetail.compone
 import { ChartsModule } from 'ng2-charts';
 import { AstromonFilterPipe } from './pipe/astromonPipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AstromonCompareComponent } from './astromonCompare/astromonCompare.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     AstromonListComponent,
     AstromonDetailComponent,
+    AstromonCompareComponent,
     AstromonFilterPipe
 
   ],

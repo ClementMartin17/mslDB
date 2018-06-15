@@ -1,5 +1,5 @@
 <div class="astromon-item astro-theme-{{astromon.element | lowercase}}">
-  <a [routerLink]="['/astromon', astromon.astromon_id, astromon.element | lowercase]">
+  <a>
     <div class="card-astromon">
       <div class="container-image card-img">
         <img *ngIf="!variant" src="./assets/image/astromon/{{astromon.element | lowercase}}/{{astromon.name[evo-1] | lowercase}}.png" height="{{height}}">
