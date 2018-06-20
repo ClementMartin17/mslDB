@@ -47,7 +47,6 @@ export class AstromonListComponent implements OnInit {
       });
   }
 
-
   onClick(astromon: Astromon) {
 
     if (!this.compare) {
@@ -60,7 +59,7 @@ export class AstromonListComponent implements OnInit {
         this.clickCounter++;
       } else if (this.clickCounter === 2 && astromon != this.firstAstromon) {
         this.clickCounter = 1;
-        this.secondAstromon = astromon       
+        this.secondAstromon = astromon
         localStorage.setItem('secondAstromon',JSON.stringify(this.secondAstromon))
         this.router.navigate(['/astromon/compare']);
       }

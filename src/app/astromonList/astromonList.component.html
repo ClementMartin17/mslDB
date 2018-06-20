@@ -81,9 +81,9 @@
       <div class="container-fluid astromon-panel">
         <div class="row astromon-panel-header">
         </div>
-        <div class="row astromon-panel-body" [@listAnimation]="list.length">
-          <msl-img class="col-md-4 col-sm-4 col-8" [astromon]="astromon" [evo]="searchEvo" [variant]="searchVariant" [height]="64"
-            *ngFor='let astromon of (list | astromonFilter:searchName:searchElement:searchSort)' (click)="onClick(astromon)"></msl-img>
+        <div class="astromon-panel-body" [@listAnimation]="list.length">
+          <msl-img class="grid-item" [astromon]="astromon" [evo]="searchEvo" [variant]="searchVariant" [height]="64"
+            *ngFor='let astromon of (list | astromonFilter:searchName:searchElement:searchSort)'(click)="onClick(astromon)"></msl-img>
         </div>
       </div>
     </div>

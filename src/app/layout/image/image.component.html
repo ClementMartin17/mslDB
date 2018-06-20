@@ -1,5 +1,5 @@
-<div class="astromon-item astro-theme-{{astromon.element | lowercase}}">
-  <a>
+<!-- <div class="astromon-item astro-theme-{{astromon.element | lowercase}}">
+  <a [routerLink]="['/astromon', astromon.astromon_id, astromon.element | lowercase]">
     <div class="card-astromon">
       <div class="container-image card-img">
         <img *ngIf="!variant" src="./assets/image/astromon/{{astromon.element | lowercase}}/{{astromon.name[evo-1] | lowercase}}.png" height="{{height}}">
@@ -30,4 +30,58 @@
       <span>{{astromon.name[evo-1]}}</span>
     </div>
   </a>
+</div> -->
+
+<div class="astromon-item astro-theme-{{astromon.element | lowercase}}">
+  <div class="item-container">
+    <div class="top-body">
+      <div class="astro-img">
+        <img *ngIf="!variant" src="./assets/image/astromon/{{astromon.element | lowercase}}/{{imagesName[0] | lowercase}}.png" height="100" width="100" />
+        <img *ngIf="variant" src="./assets/image/astromon/{{astromon.element | lowercase}}/{{imagesName[0] | lowercase}}V.png" height="100" width="100">
+        <div>
+          <img *ngIf="!variant" src="./assets/image/astromon/{{astromon.element | lowercase}}/{{imagesName[1] | lowercase}}.png" height="50" />
+          <img *ngIf="variant" src="./assets/image/astromon/{{astromon.element | lowercase}}/{{imagesName[1] | lowercase}}V.png" height="50" />
+          <img *ngIf="!variant" src="./assets/image/astromon/{{astromon.element | lowercase}}/{{imagesName[2] | lowercase}}.png" height="50" />
+          <img *ngIf="variant" src="./assets/image/astromon/{{astromon.element | lowercase}}/{{imagesName[2] | lowercase}}V.png" height="50" />
+        </div>
+      </div>
+      <div class="astro-infos">
+        <div class="astro-header">
+          <span>{{astromon.name[evo-1]}}</span>
+        </div>
+        <div class="astro-stats">
+
+        </div>
+      </div>
+    </div>
+    <div class="bottom-body">
+      <div class="skill-container">
+        <div class="skill-img-container">
+          <img src="./assets/image/passive/{{astromon.normal.passive.name | lowercase}}.png" height="50" />
+        </div>
+        <div class="skill-txt-container">
+          <p class="skill-name">Stun</p>
+          <span>{{passiveText}}</span>
+        </div>
+      </div>
+      <div class="skill-container">
+        <div class="skill-img-container">
+          <img src="./assets/image/passive/{{astromon.active.passive.name | lowercase}}.png" height="50" />
+        </div>
+        <div class="skill-txt-container">
+          <p class="skill-name">Stun</p>
+          <span>{{activeText}}</span>
+        </div>
+      </div>
+      <div class="skill-container">
+        <div class="skill-img-container">
+          <img src="./assets/image/leader/{{astromon.variant.name | lowercase}}.png" height="50" />
+        </div>
+        <div class="skill-txt-container">
+          <p class="skill-name">Stun</p>
+          <span>{{variantText}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

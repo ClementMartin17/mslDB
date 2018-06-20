@@ -14,8 +14,15 @@ export class ImageComponent implements OnInit{
   variantText:string;
   passiveText:string;
   activeText:string;
+  imagesName: any;
   ngOnInit() {
     this.astromon;
+
+    this.imagesName = [
+      this.astromon.name[this.evo - 1],
+      this.evo === 1 ? this.astromon.name[1] : this.astromon.name[0],
+      this.evo === 3 ? this.astromon.name[0] : this.astromon.name[2]
+    ]
 
     this.activeText = getFormattedTxt(this.astromon.active.passive.text["en"], this.astromon.active.passive.values);
     this.passiveText = getFormattedTxt(this.astromon.normal.passive.text["en"], this.astromon.normal.passive.values);
